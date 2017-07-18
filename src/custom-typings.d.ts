@@ -75,14 +75,13 @@ interface GlobalEnvironment {
   SystemJS: SystemJS;
   System: SystemJS;
 }
-
-interface Es6PromiseLoader {
-  (id: string): (exportName?: string) => Promise<any>;
-}
+// Fix for "Interface has only a call signature.."
+type Es6PromiseLoader = (id: string) => (exportName?: string) => Promise<any>;
+// interface Es6PromiseLoader { (id: string): (exportName?: string) => Promise<any>; }
 
 type FactoryEs6PromiseLoader = () => Es6PromiseLoader;
 type FactoryPromise = () => Promise<any>;
-// tslint:disable ban-types interface-over-type-literal
+/* tslint:disable ban-types interface-over-type-literal */
 type AsyncRoutes = {
   [component: string]: Es6PromiseLoader |
                                Function |
@@ -127,7 +126,7 @@ interface ErrorStackTraceLimit {
   stackTraceLimit: number;
 }
 
-// tslint:disable no-empty-interface
+/* tslint:disable no-empty-interface */
 // Extend typings
 interface NodeRequire extends WebpackRequire {}
 interface ErrorConstructor extends ErrorStackTraceLimit {}

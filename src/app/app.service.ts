@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+// tslint:disable-next-line interface-over-type-literal
 export type InternalStateType = {
   [key: string]: any
 };

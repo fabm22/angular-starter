@@ -37,7 +37,7 @@ const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState
 ];
-
+// tslint:disable-next-line interface-over-type-literal
 type StoreType = {
   state: InternalStateType,
   restoreInputValues: () => void,
@@ -93,7 +93,7 @@ export class AppModule {
      * Set input values
      */
     if ('restoreInputValues' in store) {
-      let restoreInputValues = store.restoreInputValues;
+      const restoreInputValues = store.restoreInputValues;
       setTimeout(restoreInputValues);
     }
 
