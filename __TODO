@@ -1,0 +1,8 @@
+- Update to webpack 3  :
+   "
+   '2.7.0': '2017-07-12T07:00:52.169Z',
+   '3.3.0': '2017-07-15T13:53:24.941Z' },
+   "
+
+- Find work/fix about the rxjs .d.ts error with ts 2.4
+
