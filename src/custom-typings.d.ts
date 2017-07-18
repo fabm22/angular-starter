@@ -57,11 +57,15 @@ declare module 'modern-lru' {
 */
 
 // Extra variables that live on Global that will be replaced by webpack DefinePlugin
+//noinspection ES6ConvertVarToLetConst
 declare var ENV: string;
+//noinspection ES6ConvertVarToLetConst
 declare var HMR: boolean;
+//noinspection ES6ConvertVarToLetConst
 declare var System: SystemJS;
 
 interface SystemJS {
+  //noinspection ReservedWordAsName
   import: (path?: string) => Promise<any>;
 }
 
@@ -78,7 +82,7 @@ interface Es6PromiseLoader {
 
 type FactoryEs6PromiseLoader = () => Es6PromiseLoader;
 type FactoryPromise = () => Promise<any>;
-
+// tslint:disable ban-types interface-over-type-literal
 type AsyncRoutes = {
   [component: string]: Es6PromiseLoader |
                                Function |
@@ -87,10 +91,11 @@ type AsyncRoutes = {
 };
 
 type IdleCallbacks = Es6PromiseLoader |
+
                              Function |
               FactoryEs6PromiseLoader |
                        FactoryPromise ;
-
+// tslint:enable ban-types interface-over-type-literal
 interface WebpackModule {
   hot: {
     data?: any,
@@ -122,6 +127,7 @@ interface ErrorStackTraceLimit {
   stackTraceLimit: number;
 }
 
+// tslint:disable no-empty-interface
 // Extend typings
 interface NodeRequire extends WebpackRequire {}
 interface ErrorConstructor extends ErrorStackTraceLimit {}
